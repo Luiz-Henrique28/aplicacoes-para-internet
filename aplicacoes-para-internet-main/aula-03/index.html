@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sport Recife | Fan Page Oficial do Luiz</title>
+    <meta name="description" content="Página avançada sobre o Sport Club do Recife, com vídeos, áudios e formulário de sócio.">
+    <meta name="keywords" content="Sport Recife, títulos, futebol, streaming, formulário avançado">
+    <meta name="author" content="Luiz Henrique da Silva Araujo">
+    <meta name="theme-color" content="#d32f2f">
+
+    <!-- Optimization: Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://picsum.photos">
+    <link rel="preconnect" href="https://www.youtube.com">
+
+    <style>
+        :root {
+            --primary-color: #d32f2f;
+            --secondary-color: #202020;
+            --accent-color: #ffb300;
+            --text-color: #333;
+            --bg-color: #f4f4f4;
+            --card-bg: #ffffff;
+            --header-footer-text: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* Accessilibity: Focus styles */
+        :focus {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        header {
+            background-color: var(--secondary-color);
+            color: var(--header-footer-text);
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 5px solid var(--primary-color);
+        }
+
+        header h1 span.name {
+            color: var(--accent-color);
+        }
+
+        nav {
+            background: #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--primary-color);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        h2 {
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        .grid-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        article {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        article:hover {
+            transform: translateY(-5px);
+        }
+
+        article img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 1.5rem;
+        }
+
+        /* Multimedia Section */
+        .media-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        video, audio {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        figcaption {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        /* Advanced Form */
+        form {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        fieldset {
+            border: 1px solid #ddd;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        legend {
+            padding: 0 10px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        input, select, textarea {
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        input[type="range"] {
+            padding: 0;
+        }
+
+        .checkbox-group, .radio-group {
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-group input, .radio-group input {
+            width: auto;
+        }
+
+        button {
+            padding: 1rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #b71c1c;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--header-footer-text);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            form {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>
+            <span class="name">Luiz Henrique Araujo</span> | Fan Page Sport Recife
+        </h1>
+    </header>
+
+    <nav aria-label="Navegação Principal">
+        <ul>
+            <li><a href="#titulos">Títulos</a></li>
+            <li><a href="#multimidia">Multimídia</a></li>
+            <li><a href="#contato">Seja Sócio</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <section id="titulos">
+            <h2>Galeria de Conquistas</h2>
+            <div class="grid-section">
+                <article>
+                    <img src="https://picsum.photos/400/200?sport1" alt="Troféu do Brasileirão 1987" width="400" height="200" loading="lazy">
+                    <div class="article-content">
+                        <h3>Campeonato Brasileiro - 1987</h3>
+                        <p>A glória nacional inquestionável do Leão da Ilha.</p>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="https://picsum.photos/400/200?sport2" alt="Festa da Copa do Brasil 2008" width="400" height="200" loading="lazy">
+                    <div class="article-content">
+                        <h3>Copa do Brasil - 2008</h3>
+                        <p>O Brasil parou para ver o Sport campeão em cima do Corinthians.</p>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="https://picsum.photos/400/200?sport3" alt="Copa do Nordeste" width="400" height="200" loading="lazy">
+                    <div class="article-content">
+                        <h3>Copa do Nordeste - Tri-Campeão</h3>
+                        <p>O maior recordista de títulos regionais do estado.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="multimidia" class="media-container">
+            <h2>Experiência Premium</h2>
+            
+            <figure>
+                <h3>Gols Históricos</h3>
+                <div class="video-wrapper">
+                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/hLeEm4NLpjc" 
+                        title="Melhores momentos do Sport" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen loading="lazy"></iframe>
+                </div>
+                <figcaption>Vídeo: Melhores momentos e história do Sport Club do Recife.</figcaption>
+            </figure>
+
+            <figure>
+                <h3>Hino Oficial</h3>
+                <audio controls>
+                    <source src="hino_do_sport_club_do_recife.mp3" type="audio/mpeg">
+                    Seu navegador não suporta áudio HTML5.
+                </audio>
+                <figcaption>Ouça o hino oficial do Sport Club do Recife.</figcaption>
+            </figure>
+        </section>
+
+        <section id="contato">
+            <h2>Faça parte da história</h2>
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Dados Identificação</legend>
+                    <div class="form-group">
+                        <label for="nome">Nome Completo:</label>
+                        <input type="text" id="nome" name="nome" placeholder="Ex: Luiz Henrique" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail Pessoal:</label>
+                        <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone (WhatsApp):</label>
+                        <input type="tel" id="telefone" name="telefone" pattern="[0-9]{2} [0-9]{9}" placeholder="81 999999999">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Preferências de Torcedor</legend>
+                    <div class="form-group">
+                        <label for="nascimento">Data de Nascimento:</label>
+                        <input type="date" id="nascimento" name="nascimento">
+                    </div>
+                    <div class="form-group">
+                        <label for="titulos_guess">Quantos brasileiros o Sport tem?</label>
+                        <input type="number" id="titulos_guess" name="titulos" min="1" max="10" value="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="nivel_fan">Nível de Paixão (0 a 100):</label>
+                        <input type="range" id="nivel_fan" name="nivel_fan" min="0" max="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="cor_favorita">Escolha a cor do seu manto:</label>
+                        <input type="color" id="cor_favorita" name="cor_favorita" value="#d32f2f">
+                    </div>
+                    <div class="form-group">
+                        <label for="site">Seu Perfil/Site:</label>
+                        <input type="url" id="site" name="site" placeholder="https://instagram.com/seuusuario">
+                    </div>
+                    <div class="form-group">
+                        <label for="jogador">Busque seu ídolo:</label>
+                        <input list="jogadores" id="jogador" name="jogador">
+                        <datalist id="jogadores">
+                            <option value="Magrão">
+                            <option value="Durval">
+                            <option value="Leonardo">
+                            <option value="Diego Souza">
+                            <option value="Carlinhos Bala">
+                        </datalist>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Assinatura</legend>
+                    <div class="form-group">
+                        <label for="plano">Tipo de Plano:</label>
+                        <select id="plano" name="plano">
+                            <option value="bronze">Sócio Bronze - R$ 20/mês</option>
+                            <option value="prata">Sócio Prata - R$ 50/mês</option>
+                            <option value="ouro">Sócio Ouro - R$ 100/mês</option>
+                        </select>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="news" name="news">
+                        <label for="news">Desejo receber notícias por e-mail</label>
+                    </div>
+                    <div class="form-group radio-group">
+                        <span>Preferência de contato:</span>
+                        <input type="radio" id="contato_email" name="pref_contato" value="email" checked>
+                        <label for="contato_email">E-mail</label>
+                        <input type="radio" id="contato_tel" name="pref_contato" value="tel">
+                        <label for="contato_tel">Telefone</label>
+                    </div>
+                </fieldset>
+
+                <div class="form-group">
+                    <label for="mensagem">Por que você quer ser sócio?</label>
+                    <textarea id="mensagem" name="mensagem" rows="4"></textarea>
+                </div>
+
+                <button type="submit">Finalizar Inscrição</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 - Luiz Henrique da Silva Araujo | Todos os direitos reservados</p>
+        <p>Desenvolvido para fins acadêmicos - Aula 03 (Atualizado)</p>
+    </footer>
+
+</body>
+
+</html>
